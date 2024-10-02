@@ -1,0 +1,8 @@
+<resources>
+    <color
+        name="primary"
+        type="material">#181818
+    </color>
+    <color name="ad_background">#FAFAFA</color>
+    <color name="ad_border">#F2F3F5</color>
+</resources>
