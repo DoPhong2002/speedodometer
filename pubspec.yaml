@@ -72,6 +72,7 @@ dev_dependencies:
   auto_route_generator:
   flutter_lints: ^4.0.0
   flutter_gen_runner: ^5.4.0
+  flutter_launcher_icons: "^0.14.1"
 
 flutter:
   generate: true
@@ -142,13 +143,3 @@ flutter_gen:
   assets:
     outputs:
       class_name: Assets
-#
-#flutter_native_splash:
-#  color: "#333333"
-#  image: assets/images/logo/logo.png
-#  image_android: "assets/images/logo/logo.png"
-#  fullscreen: true
-#flutter_launcher_icons:
-#  android: true
-#  ios: true
-#  image_path: "assets/images/logo/logo.png"
