@@ -1,6 +1,10 @@
 import '../../gen/assets.gen.dart';
 
 enum Language {
+  vietnam(
+    languageName: 'Việt Nam',
+    languageCode: 'vi',
+  ),
   english(
     languageName: 'English',
     languageCode: 'en',
@@ -66,6 +70,8 @@ extension LanguageExtension on Language {
         return Assets.images.languages.bangladesh.path;
       case Language.turkish:
         return Assets.images.languages.turkish.path;
+      case Language.vietnam:
+        return Assets.images.languages.vn.path;
     }
   }
 }

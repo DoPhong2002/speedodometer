@@ -7,7 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 
-import '../../app/cubit/language_cubit.dart';
+import '../presentation/language/cubit/language_cubit.dart';
 import '../../main.dart';
 import '../config/di/di.dart';
 import '../data/local/shared_preferences_manager.dart';

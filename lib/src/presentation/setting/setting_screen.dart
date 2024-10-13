@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../app/cubit/language_cubit.dart';
+import '../language/cubit/language_cubit.dart';
 import '../../../module/tracking_screen/loggable_widget.dart';
 import '../../config/di/di.dart';
 import '../../config/navigation/app_router.dart';

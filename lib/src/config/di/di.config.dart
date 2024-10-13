@@ -10,10 +10,11 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:odometer/app/cubit/language_cubit.dart' as _i611;
 import 'package:odometer/src/config/navigation/app_router.dart' as _i440;
 import 'package:odometer/src/data/local/shared_preferences_manager.dart'
     as _i185;
+import 'package:odometer/src/presentation/language/cubit/language_cubit.dart'
+    as _i667;
 import 'package:odometer/src/presentation/map/cubit/speed_cubit.dart' as _i289;
 import 'package:odometer/src/presentation/map/cubit/timer_cubit.dart' as _i36;
 import 'package:odometer/src/presentation/setting/bloc/setting_bloc.dart'
@@ -42,8 +43,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i185.PreferenceManager>(() => _i185.PreferenceManager());
     gh.factory<_i36.Ticker>(() => const _i36.Ticker());
-    gh.singleton<_i611.LanguageCubit>(() => _i611.LanguageCubit());
     gh.singleton<_i440.AppRouter>(() => _i440.AppRouter());
+    gh.singleton<_i667.LanguageCubit>(() => _i667.LanguageCubit());
     gh.singleton<_i289.SpeedCubit>(() => _i289.SpeedCubit());
     gh.singleton<_i546.SettingBloc>(() => _i546.SettingBloc());
     gh.singleton<_i1036.CompassCubit>(() => _i1036.CompassCubit());

@@ -1,20 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:shimmer/shimmer.dart';
-
-import '../../../app/cubit/language_cubit.dart';
+import '../language/cubit/language_cubit.dart';
 import '../../config/di/di.dart';
 import '../../data/models/weather/weather.dart';
 import '../../gen/assets.gen.dart';
-import '../../gen/colors.gen.dart';
 import '../../service/api_service.dart';
 import '../../service/location_service.dart';
-import '../../shared/constants/app_colors.dart';
 import '../../shared/extension/context_extension.dart';
 import '../../shared/helpers/logger_utils.dart';
 import '../../shared/mixin/permission_mixin.dart';
@@ -22,10 +16,8 @@ import '../../shared/widgets/custom_appbar.dart';
 import '../../utils/time_utlil.dart';
 import '../../widgets/gps_background.dart';
 import 'cubits/weather_cubit.dart';
-import 'widgets/button_time_widget.dart';
 import 'widgets/center_weather_widget.dart';
 import 'widgets/item_summary_widget.dart';
-import 'widgets/item_weather_small_widget.dart';
 import 'widgets/weather_detail_widget.dart';
 
 @RoutePage()

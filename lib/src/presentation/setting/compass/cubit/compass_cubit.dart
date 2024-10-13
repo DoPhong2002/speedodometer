@@ -6,13 +6,6 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../utils/direction_utils.dart';
 
-class CompassState {
-  CompassState({this.direction, this.angle = 'East 0°', this.hasError = false});
-  final double? direction;
-  final String angle;
-  final bool hasError;
-}
-
 @singleton
 class CompassCubit extends Cubit<CompassState> {
   CompassCubit() : super(CompassState()) {
@@ -27,13 +20,13 @@ class CompassCubit extends Cubit<CompassState> {
         emit(CompassState(hasError: true));
       } else {
         final direction = event.heading!;
-        final angle = _getFormattedAngle(direction, event);
+        final angle = _getFormattedAngle(direction);
         emit(CompassState(direction: direction, angle: angle));
       }
     });
   }
 
-  String _getFormattedAngle(double angle, CompassEvent event) {
+  String _getFormattedAngle(double angle) {
     final String direction = angle.getDirection;
     return direction;
   }
@@ -43,4 +36,12 @@ class CompassCubit extends Cubit<CompassState> {
     _compassSubscription?.cancel();
     return super.close();
   }
+}
+
+class CompassState {
+  CompassState({this.direction, this.angle = 'East 0°', this.hasError = false});
+
+  final double? direction;
+  final String angle;
+  final bool hasError;
 }

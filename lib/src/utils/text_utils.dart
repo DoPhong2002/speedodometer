@@ -165,17 +165,8 @@ mixin TextUtils {
 
   static Future<void> onHideScreen(bool hud) async {
     getIt<HideNavigationBarCubit>().update(true);
-/*    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: [SystemUiOverlay.top]);*/
     TimerManager.instance.startTimer(() {
       getIt<HideNavigationBarCubit>().update(false);
-/*      if (hud) {
-        SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-            overlays: [SystemUiOverlay.top]);
-      } else {
-        SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-            overlays: [SystemUiOverlay.top]);
-      }*/
     });
   }
 
@@ -186,12 +177,6 @@ mixin TextUtils {
   }
 
   static Future<void> settingSystemUI() async {
-/*    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
-    return ;*/
-
     final rotate = await PreferenceManager.getRotate();
     if (rotate) {
       SystemChrome.setPreferredOrientations([

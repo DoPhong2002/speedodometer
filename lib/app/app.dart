@@ -22,7 +22,7 @@ import '../src/shared/cubit/hide_navigation_bar_cubit.dart';
 import '../src/shared/enum/language.dart';
 import '../src/shared/screen/cubit/bottom_tab_cubit.dart';
 import '../src/widgets/dialog/no_internet_dialog.dart';
-import 'cubit/language_cubit.dart';
+import '../src/presentation/language/cubit/language_cubit.dart';
 
 final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
 

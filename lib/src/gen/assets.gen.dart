@@ -665,6 +665,9 @@ class $AssetsImagesLanguagesGen {
   AssetGenImage get uzbekistan =>
       const AssetGenImage('assets/images/languages/uzbekistan.png');
 
+  /// File path: assets/images/languages/vn.png
+  AssetGenImage get vn => const AssetGenImage('assets/images/languages/vn.png');
+
   /// File path: assets/images/languages/zh.png
   AssetGenImage get zh => const AssetGenImage('assets/images/languages/zh.png');
 
@@ -680,6 +683,7 @@ class $AssetsImagesLanguagesGen {
         turkish,
         urdu,
         uzbekistan,
+        vn,
         zh
       ];
 }

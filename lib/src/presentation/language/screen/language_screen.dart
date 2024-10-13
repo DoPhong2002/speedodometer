@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../app/cubit/language_cubit.dart';
+import '../cubit/language_cubit.dart';
 import '../../../../module/tracking_screen/loggable_widget.dart';
 import '../../../config/di/di.dart';
 import '../../../config/navigation/app_router.dart';
@@ -18,8 +18,7 @@ import '../../../widgets/gps_background.dart';
 import '../../../widgets/gradient_border_widget.dart';
 
 @RoutePage()
-class LanguageScreen extends StatefulWidget
-    implements AutoRouteWrapper {
+class LanguageScreen extends StatefulWidget implements AutoRouteWrapper {
   const LanguageScreen({
     super.key,
     this.isFirst = false,
@@ -139,60 +138,21 @@ Widget _buildItemLanguage({
   return GestureDetector(
     onTap: () => selectedLanguageCubit.update(language),
     child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 4,
-        ),
-        child: GradientBorder(
-          gradient: selectedValue == language
-              ? AppColors.borderGradient
-              : LinearGradient(
-                  colors: [
-                    Colors.white.withOpacity(0.1),
-                    Colors.white.withOpacity(0.1),
-                  ],
-                ),
-          borderRadius: 20,
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              children: [
-                Image.asset(
-                  language.flagPath,
-                  width: 32,
-                  height: 32,
-                ),
-                16.hSpace,
-                Expanded(
-                  child: Text(
-                    language.languageName,
-                    style: StyleUtils.style.bold.s16.white,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        )
-/*
-      Container(
-        padding: const EdgeInsets.all(1.5),
-        decoration: BoxDecoration(
-          gradient: selectedValue == language
-              ? AppColors.borderGradient
-              : LinearGradient(
-                  colors: [
-                    Colors.white.withOpacity(0.1),
-                    Colors.white.withOpacity(0.1),
-                  ],
-                ),
-          borderRadius: BorderRadius.circular(20),
-        ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 24,
+        vertical: 4,
+      ),
+      child: GradientBorder(
+        gradient: selectedValue == language
+            ? AppColors.borderGradient
+            : LinearGradient(
+                colors: [
+                  Colors.white.withOpacity(0.1),
+                  Colors.white.withOpacity(0.1),
+                ],
+              ),
+        borderRadius: 20,
         child: Container(
-          decoration: BoxDecoration(
-            color: Colors.black,
-            gradient: AppColors.languageGradient,
-            borderRadius: BorderRadius.circular(19),
-          ),
           padding: const EdgeInsets.all(16),
           child: Row(
             children: [
@@ -212,7 +172,6 @@ Widget _buildItemLanguage({
           ),
         ),
       ),
-      */
-        ),
+    ),
   );
 }
