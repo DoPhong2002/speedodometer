@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../data/models/weather/weather.dart';
+import '../model/weather.dart';
 import '../../../shared/extension/context_extension.dart';
 import '../../../utils/style_utils.dart';
 import '../../../widgets/image/custome_cache_image.dart';

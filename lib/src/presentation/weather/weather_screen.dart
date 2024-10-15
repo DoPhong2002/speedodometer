@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../language/cubit/language_cubit.dart';
 import '../../config/di/di.dart';
-import '../../data/models/weather/weather.dart';
+import 'model/weather.dart';
 import '../../gen/assets.gen.dart';
 import '../../service/api_service.dart';
 import '../../service/location_service.dart';

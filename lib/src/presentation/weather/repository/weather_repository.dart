@@ -2,14 +2,13 @@ import 'dart:convert';
 
 import "package:http/http.dart" as http;
 
-import '../../../data/models/weather/weather.dart';
+import '../model/weather.dart';
 import '../../../service/api_service.dart';
 
 class WeatherRepository {
   WeatherRepository();
 
-  final WeatherApiService apiService =
-      WeatherApiService(APIKeys.openWeatherAPIKey);
+  final WeatherApiService apiService = WeatherApiService(openWeatherAPIKey);
 
   final http.Client client = http.Client();
 

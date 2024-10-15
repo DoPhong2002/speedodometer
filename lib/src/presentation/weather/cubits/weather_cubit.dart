@@ -1,8 +1,8 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:intl/intl.dart';
 
-import '../../../data/models/weather/weather.dart';
 import '../../../service/api_service.dart';
+import '../model/weather.dart';
 import '../repository/weather_repository.dart';
 
 class WeatherCubit extends HydratedCubit<Weather> {
