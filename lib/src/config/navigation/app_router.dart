@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import '../../presentation/hud/hud_screen.dart';
 import '../../presentation/language/screen/language_screen.dart';
-import '../../presentation/map/map_screen.dart';
 import '../../presentation/odometer/speedometer_screen.dart';
 import '../../presentation/onboarding/onboarding_screen.dart';
 import '../../presentation/permission/permission_screen.dart';
@@ -39,7 +38,6 @@ class AppRouter extends _$AppRouter {
             ]),
         AutoRoute(page: SettingRoute.page),
         AutoRoute(page: CompassRoute.page),
-        AutoRoute(page: MapRoute.page),
         AutoRoute(page: ThemeRoute.page),
         AutoRoute(page: SpeedLimitRoute.page),
       ];

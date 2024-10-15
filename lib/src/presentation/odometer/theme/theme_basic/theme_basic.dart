@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
-
 import '../../../../config/di/di.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
 import '../../../../shared/constants/app_colors.dart';
 import '../../../../utils/style_utils.dart';
-import '../../../map/cubit/speed_cubit.dart';
 import '../../../setting/bloc/setting_bloc.dart';
+import '../../cubit/speed_cubit.dart';
 
 class ThemeBasic extends StatelessWidget {
   ThemeBasic({super.key, required this.pathImage, required this.maxSpeed});

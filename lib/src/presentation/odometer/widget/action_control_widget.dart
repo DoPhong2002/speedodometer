@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../map/cubit/speed_cubit.dart';
-import '../../map/cubit/timer_cubit.dart';
-import '../../map/widget/btn_play_pause_map.dart';
-import '../../map/widget/btn_start_map.dart';
+import '../cubit/speed_cubit.dart';
+import '../cubit/timer_cubit.dart';
+import 'btn_play_pause.dart';
+import 'btn_start.dart';
 
 class ActionControl extends StatelessWidget {
   const ActionControl({
@@ -25,7 +25,7 @@ class ActionControl extends StatelessWidget {
           children: [
             ...switch (state) {
               TimerInitial() => [
-                  BtnStartMap(callback: () async {
+                  BtnStart(callback: () async {
                     if (isActivity) {
                       context
                           .read<TimerBloc>()

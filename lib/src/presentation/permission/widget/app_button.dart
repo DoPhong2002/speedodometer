@@ -43,10 +43,6 @@ class AppButton extends StatelessWidget {
     return isEnable ? textColor : textSecondColor;
   }
 
-  Color? _getIconColor() {
-    return isEnable ? textColor : textSecondColor;
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

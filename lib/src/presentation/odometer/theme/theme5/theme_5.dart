@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../config/di/di.dart';
-import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
 import '../../../../utils/style_utils.dart';
-import '../../../map/cubit/speed_cubit.dart';
 import '../../../setting/bloc/setting_bloc.dart';
+import '../../cubit/speed_cubit.dart';
 
 class Theme5 extends StatelessWidget {
   const Theme5({super.key, required this.pathImage, required this.maxSpeed});

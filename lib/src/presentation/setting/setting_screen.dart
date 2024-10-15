@@ -56,7 +56,6 @@ class _SettingScreenState extends State<SettingScreen> {
   late final ValueCubit<Unit> unitCubit;
   late final ValueCubit<FontStyle> fontCubit;
 
-
   @override
   Widget build(BuildContext context) {
     return GpsBackgroundHome(
@@ -256,30 +255,6 @@ class _SettingScreenState extends State<SettingScreen> {
                               context.pushRoute(LanguageRoute());
                             },
                           );
-                        },
-                      ),
-                      /*ItemListOrSwitchWidget(
-                        title: context.l10n.rate,
-                        rightWidget: Assets.icons.settings.nextSetting.svg(),
-                        iconLeft: Assets.icons.settings.rate.svg(),
-                        onTapItem: () => DialogRateWidget.showDialogWidget(
-                            fromSetting: true),
-                      ),
-                      ItemListOrSwitchWidget(
-                        title: context.l10n.share,
-                        rightWidget: Assets.icons.settings.nextSetting.svg(),
-                        iconLeft: Assets.icons.settings.share.svg(),
-                        onTapItem: () {
-                          shareApp(context);
-                        },
-                      ),*/
-                      ItemListOrSwitchWidget(
-                        title: context.l10n.policy,
-                        rightWidget: Assets.icons.settings.nextSetting.svg(),
-                        iconLeft: Assets.icons.settings.policy.svg(),
-                        onTapItem: () {
-                           context
-                              .pushRoute(const MapRoute());
                         },
                       ),
                       const SizedBox(height: 120),

@@ -8,8 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:odometer/src/presentation/permission/widget/permission_switch.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-import '../../../../module/tracking_screen/loggable_widget.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../shared/constants/app_colors.dart';
 import '../../../shared/cubit/value_cubit.dart';

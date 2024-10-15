@@ -3,17 +3,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../module/tracking_screen/loggable_widget.dart';
 import '../../config/di/di.dart';
-import '../../gen/assets.gen.dart';
 import '../../gen/fonts.gen.dart';
 import '../../shared/constants/app_colors.dart';
 import '../../shared/cubit/hide_navigation_bar_cubit.dart';
 import '../../shared/extension/context_extension.dart';
 import '../../utils/style_utils.dart';
 import '../../widgets/gps_background.dart';
-import '../map/cubit/speed_cubit.dart';
-import '../map/widget/btn_hub_odometer.dart';
+import '../odometer/cubit/speed_cubit.dart';
+import '../odometer/widget/btn_hub_odometer.dart';
 import '../setting/bloc/setting_bloc.dart';
 
 @RoutePage()

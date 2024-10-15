@@ -9,10 +9,10 @@ import '../../../shared/extension/context_extension.dart';
 import '../../../utils/style_utils.dart';
 import '../../../utils/text_utils.dart';
 import '../../../utils/unit_utils.dart';
-import '../../map/cubit/speed_cubit.dart';
-import '../../map/cubit/timer_cubit.dart';
 import '../../setting/bloc/setting_bloc.dart';
 import '../../setting/compass/cubit/compass_cubit.dart';
+import '../cubit/speed_cubit.dart';
+import '../cubit/timer_cubit.dart';
 
 class RowRunTimeOmeter extends StatelessWidget {
   const RowRunTimeOmeter({
@@ -41,7 +41,7 @@ class RowRunTimeOmeter extends StatelessWidget {
                         return TextUtils.cardNumberUnit(
                           context,
                           context.l10n.distance,
-                          '${(stateSpeed.distanceTravelled / 1000).convertUnit(stateSetting.distanceUnit) == 0.0 ? 0 : (stateSpeed.distanceTravelled / 1000).convertUnit(stateSetting.distanceUnit)}',
+                          '${(stateSpeed.distanceTravelled / 6000).convertUnit(stateSetting.distanceUnit)}',
                           stateSetting.distanceUnit,
                           style: StyleUtils.style.s18.bold.textMap.copyWith(
                               fontFamily: stateSetting.fontType == 0
@@ -94,7 +94,7 @@ class RowRunTimeOmeter extends StatelessWidget {
                         return TextUtils.cardNumberUnit(
                             context,
                             context.l10n.maxSpeed,
-                            '${state.maxSpeedOnTime.convertUnit(stateSetting.speedUnit) < 1 ? 0 : state.maxSpeedOnTime.convertUnit(stateSetting.speedUnit)}',
+                            '${state.maxSpeedOnTime.convertUnit(stateSetting.speedUnit)}',
                             stateSetting.speedUnit,
                             style: StyleUtils.style.s16.bold.textMap.copyWith(
                                 fontFamily: stateSetting.fontType == 0

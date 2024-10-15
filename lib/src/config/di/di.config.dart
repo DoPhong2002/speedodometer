@@ -15,8 +15,10 @@ import 'package:odometer/src/data/local/shared_preferences_manager.dart'
     as _i185;
 import 'package:odometer/src/presentation/language/cubit/language_cubit.dart'
     as _i667;
-import 'package:odometer/src/presentation/map/cubit/speed_cubit.dart' as _i289;
-import 'package:odometer/src/presentation/map/cubit/timer_cubit.dart' as _i36;
+import 'package:odometer/src/presentation/odometer/cubit/speed_cubit.dart'
+    as _i8;
+import 'package:odometer/src/presentation/odometer/cubit/timer_cubit.dart'
+    as _i611;
 import 'package:odometer/src/presentation/setting/bloc/setting_bloc.dart'
     as _i546;
 import 'package:odometer/src/presentation/setting/compass/cubit/compass_cubit.dart'
@@ -42,10 +44,9 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     gh.factory<_i185.PreferenceManager>(() => _i185.PreferenceManager());
-    gh.factory<_i36.Ticker>(() => const _i36.Ticker());
+    gh.factory<_i611.Ticker>(() => const _i611.Ticker());
     gh.singleton<_i440.AppRouter>(() => _i440.AppRouter());
     gh.singleton<_i667.LanguageCubit>(() => _i667.LanguageCubit());
-    gh.singleton<_i289.SpeedCubit>(() => _i289.SpeedCubit());
     gh.singleton<_i546.SettingBloc>(() => _i546.SettingBloc());
     gh.singleton<_i1036.CompassCubit>(() => _i1036.CompassCubit());
     gh.singleton<_i711.ThemeCubit>(() => _i711.ThemeCubit());
@@ -53,9 +54,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i474.HideNavigationBarCubit>(
         () => _i474.HideNavigationBarCubit());
     gh.singleton<_i93.BottomTabCubit>(() => _i93.BottomTabCubit());
+    gh.singleton<_i8.SpeedCubit>(() => _i8.SpeedCubit());
+    gh.singleton<_i611.TimerBloc>(() => _i611.TimerBloc(gh<_i611.Ticker>()));
     gh.factory<_i820.LocationService>(
         () => _i820.LocationService(gh<_i185.PreferenceManager>()));
-    gh.singleton<_i36.TimerBloc>(() => _i36.TimerBloc(gh<_i36.Ticker>()));
     return this;
   }
 }

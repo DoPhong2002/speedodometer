@@ -22,7 +22,6 @@ class SpeedCubit extends Cubit<SpeedState> {
   Future<void> startTracking() async {
     await _positionStreamSubscription?.cancel();
     _positionStreamSubscription = null;
-
     _positionStreamSubscription = Geolocator.getPositionStream(
       locationSettings: const LocationSettings(
         accuracy: LocationAccuracy.high,
@@ -30,7 +29,6 @@ class SpeedCubit extends Cubit<SpeedState> {
       ),
     ).listen((Position position) {
       final speed = position.speed;
-
       double distanceTravelled = state.distanceTravelled;
       if (_lastPosition != null) {
         distanceTravelled += Geolocator.distanceBetween(
@@ -48,9 +46,9 @@ class SpeedCubit extends Cubit<SpeedState> {
   }
 
   void change({required double maxSpeed, required double speed}) {
-    if (speed >= state.speedLimit - 1) {
+    if (speed >= state.speedLimit - 10) {
       emit(state.copyWith(speedWarning: SpeedWarning.red));
-    } else if (speed >= state.speedLimit - 10) {
+    } else if (speed >= state.speedLimit - 20) {
       emit(state.copyWith(speedWarning: SpeedWarning.orange));
     } else {
       emit(state.copyWith(speedWarning: SpeedWarning.none));
@@ -59,8 +57,8 @@ class SpeedCubit extends Cubit<SpeedState> {
     emit(state.copyWith(maxSpeedOnTime: updatedMaxSpeed, speed: speed));
   }
 
-  void stopTracking() {
-    _positionStreamSubscription?.cancel();
+  Future<void> stopTracking() async{
+    await _positionStreamSubscription?.cancel();
     _positionStreamSubscription = null;
     emit(state.copyWith(
       maxSpeedOnTime: 0,

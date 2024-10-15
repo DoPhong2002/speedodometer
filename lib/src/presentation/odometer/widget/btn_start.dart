@@ -8,8 +8,8 @@ import '../../../shared/constants/app_colors.dart';
 import '../../../shared/extension/context_extension.dart';
 import '../../../utils/style_utils.dart';
 
-class BtnStartMap extends StatelessWidget {
-  const BtnStartMap({
+class BtnStart extends StatelessWidget {
+  const BtnStart({
     super.key,
     required this.callback,
     this.hideIcon = true,

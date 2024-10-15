@@ -4,7 +4,7 @@ import '../../../config/di/di.dart';
 import '../../../data/local/shared_preferences_manager.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../utils/localization_util.dart';
-import '../../map/cubit/speed_cubit.dart';
+import '../../odometer/cubit/speed_cubit.dart';
 import '../../setting/bloc/setting_bloc.dart';
 import 'speed_limit_event.dart';
 import 'speed_limit_state.dart';

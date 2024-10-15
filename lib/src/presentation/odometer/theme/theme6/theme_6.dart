@@ -8,8 +8,8 @@ import '../../../../config/di/di.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
 import '../../../../utils/style_utils.dart';
-import '../../../map/cubit/speed_cubit.dart';
 import '../../../setting/bloc/setting_bloc.dart';
+import '../../cubit/speed_cubit.dart';
 
 class Theme6 extends StatelessWidget {
   const Theme6({super.key, required this.pathImage, required this.maxSpeed});
