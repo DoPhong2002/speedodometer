@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import '../../data/models/trip/trip_model.dart';
 import '../../presentation/hud/hud_screen.dart';
 import '../../presentation/language/screen/language_screen.dart';
 import '../../presentation/map/map_screen.dart';

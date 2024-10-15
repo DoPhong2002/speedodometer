@@ -183,70 +183,10 @@ class _HudScreenState extends State<HudScreen>
                           ),
                         ),
                       ),
-                      /*               Positioned(
-                        right: 100,
-                        bottom: start ? null : 100,
-                        top: start ? 100 : null,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 100.0),
-                          child: Transform.flip(
-                            flipY: start,
-                            child: Transform.rotate(
-                              angle: math.pi / 2,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: SvgPicture.asset(
-                                          Assets.icons.facebook.path)),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: SvgPicture.asset(
-                                          Assets.icons.telegram.path)),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: SvgPicture.asset(
-                                          Assets.icons.mail.path)),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),*/
-                    /*  IgnorePointer(
-                        child: BlocBuilder<SpeedCubit, SpeedState>(
-                          bloc: getIt<SpeedCubit>(),
-                          builder: (context, state) {
-                            String imagePath;
-                            switch (state.speedWarning) {
-                              case SpeedWarning.red:
-                                imagePath = Assets.images.errorRed.path;
-                                break;
-                              case SpeedWarning.orange:
-                                imagePath = Assets.images.errorOrange.path;
-                                break;
-                              case SpeedWarning.none:
-                                return const SizedBox.shrink();
-                            }
-                            return SizedBox(
-                              width: double.infinity,
-                              height: double.infinity,
-                              child: Transform.flip(
-                                flipY: true,
-                                child: Image.asset(
-                                  imagePath,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),*/
                     ],
                   )
                 : Stack(
-                  children: [
+                    children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -260,11 +200,13 @@ class _HudScreenState extends State<HudScreen>
                                 child: BlocBuilder<SpeedCubit, SpeedState>(
                                   bloc: getIt<SpeedCubit>(),
                                   builder: (context, state) {
-                                    return BlocBuilder<SettingBloc, SettingState>(
+                                    return BlocBuilder<SettingBloc,
+                                        SettingState>(
                                       builder: (context, stateSetting) {
                                         return Text(
                                           '${state.speed.toInt()}',
-                                          style: StyleUtils.style.bold.s180.white
+                                          style: StyleUtils
+                                              .style.bold.s180.white
                                               .copyWith(
                                                   height: 1,
                                                   fontSize: state.speed > 999
@@ -284,7 +226,8 @@ class _HudScreenState extends State<HudScreen>
                               ),
                               Transform(
                                 transform: start
-                                    ? (Matrix4.identity()..scale(-1.0, 1.0, 1.0))
+                                    ? (Matrix4.identity()
+                                      ..scale(-1.0, 1.0, 1.0))
                                     : Matrix4.identity()
                                   ..scale(1.0, 1.0, -1.0),
                                 alignment: Alignment.center,
@@ -327,8 +270,10 @@ class _HudScreenState extends State<HudScreen>
                                       padding: EdgeInsets.only(bottom: 120),
                                       child: BtnHudOdometer(
                                         title: context.l10n.onHud,
-                                        linearGradient: AppColors.dividerGradient,
-                                        linearGradientBtn: AppColors.buttonGradient,
+                                        linearGradient:
+                                            AppColors.dividerGradient,
+                                        linearGradientBtn:
+                                            AppColors.buttonGradient,
                                         callback: () {
                                           setState(() {
                                             start = !start;
@@ -343,37 +288,8 @@ class _HudScreenState extends State<HudScreen>
                           ),
                         ],
                       ),
-                    /*IgnorePointer(
-                      child: BlocBuilder<SpeedCubit, SpeedState>(
-                        bloc: getIt<SpeedCubit>(),
-                        builder: (context, state) {
-                          String imagePath;
-                          switch (state.speedWarning) {
-                            case SpeedWarning.red:
-                              imagePath = Assets.images.errorRed.path;
-                              break;
-                            case SpeedWarning.orange:
-                              imagePath = Assets.images.errorOrange.path;
-                              break;
-                            case SpeedWarning.none:
-                              return const SizedBox.shrink();
-                          }
-                          return SizedBox(
-                            width: double.infinity,
-                            height: double.infinity,
-                            child: Transform.flip(
-                              flipY: true,
-                              child: Image.asset(
-                                imagePath,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),*/
                     ],
-                );
+                  );
           },
         ),
       ),

@@ -35,29 +35,28 @@ class _PermissionScreenState extends State<PermissionScreen> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => NotificationPermissionCubit(false),
-          ),
-          BlocProvider(
-            create: (context) => LocationPermissionCubit(false),
-          ),
-        ],
-        child: GpsBackground(
-          child: OrientationBuilder(
-            builder: (context, orientation) {
-              return Scaffold(
-                backgroundColor: Colors.transparent,
-                appBar: GpsAppbar(
-                  context,
-                  context.l10n.permission,
-                  leadingWid: 0,
-                  heightAppBar: orientation == Orientation.landscape ? 40 : 80,
-                ),
-                body: const PermissionBody(),
-              );
-            }
-          ),
-        ));
+      providers: [
+        BlocProvider(
+          create: (context) => NotificationPermissionCubit(false),
+        ),
+        BlocProvider(
+          create: (context) => LocationPermissionCubit(false),
+        ),
+      ],
+      child: GpsBackground(
+        child: OrientationBuilder(builder: (context, orientation) {
+          return Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: GpsAppbar(
+              context,
+              context.l10n.permission,
+              leadingWid: 0,
+              heightAppBar: orientation == Orientation.landscape ? 40 : 80,
+            ),
+            body: const PermissionBody(),
+          );
+        }),
+      ),
+    );
   }
 }

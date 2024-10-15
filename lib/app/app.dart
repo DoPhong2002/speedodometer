@@ -11,7 +11,6 @@ import '../src/config/navigation/app_router.dart';
 import '../src/config/observer/route_observer.dart';
 import '../src/config/theme/light/light_theme.dart';
 import '../src/presentation/map/cubit/speed_cubit.dart';
-import '../src/presentation/odometer/cubit/stopwatch_cubit.dart';
 import '../src/presentation/map/cubit/timer_cubit.dart';
 import '../src/presentation/setting/bloc/setting_bloc.dart';
 import '../src/presentation/setting/compass/cubit/compass_cubit.dart';

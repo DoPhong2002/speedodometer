@@ -24,12 +24,7 @@ class _PermissionContentState extends State<PermissionBody>
   Future<void> _checkPermission() async {
     final PermissionStatus locationStatus =
         await Permission.locationWhenInUse.status;
-/*    final PermissionStatus notificationStatus =
-        await Permission.notification.status;*/
     if (mounted) {
-/*      context
-          .read<NotificationPermissionCubit>()
-          .update(notificationStatus.isGranted || notificationStatus.isLimited);*/
       context
           .read<LocationPermissionCubit>()
           .update(locationStatus.isGranted || locationStatus.isLimited);
@@ -46,8 +41,7 @@ class _PermissionContentState extends State<PermissionBody>
           await Permission.locationWhenInUse.request();
 
       if (locationStatus.isGranted && mounted) {
-        context
-            .read<LocationPermissionCubit>()
+        context.read<LocationPermissionCubit>()
             .update(locationStatus.isGranted);
       }else if (locationStatus.isPermanentlyDenied && mounted) {
         await showDialog(
@@ -70,39 +64,6 @@ class _PermissionContentState extends State<PermissionBody>
     }
   }
 
-  FutureOr<void> _onNotificationSwitchChanged(bool value) async {
-    if (isRequesting) {
-      return;
-    }
-    if (value) {
-      isRequesting = true;
-      final PermissionStatus notificationStatus =
-          await Permission.notification.request();
-      if (notificationStatus.isGranted && mounted) {
-        context
-            .read<NotificationPermissionCubit>()
-            .update(notificationStatus.isGranted);
-      }
-      if (notificationStatus.isPermanentlyDenied && mounted) {
-        await showDialog(
-          context: context,
-          builder: (context) => RequestPermissionDialog(
-            context: context,
-            title: context.l10n.requestLocationPermission,
-            contentText: context.l10n.pleaseGrantLocationPermission,
-            buttonText: context.l10n.goToSetting,
-            pathImage: Assets.icons.permission.icLocationPermission.path,
-            onClosed: () => context.maybePop(),
-            onButtonTap: () async {
-              context.maybePop();
-              await openAppSettings();
-            },
-          ),
-        );
-      }
-      isRequesting = false;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,11 +81,6 @@ class _PermissionContentState extends State<PermissionBody>
                 style: StyleUtils.style.white.regular.s16,
               ),
             ),
-       /*     _buildItem(
-              title: context.l10n.notification,
-              cubit: context.read<NotificationPermissionCubit>(),
-              onChanged: _onNotificationSwitchChanged,
-            ),*/
             _buildItem(
               title: context.l10n.location,
               cubit: context.read<LocationPermissionCubit>(),
@@ -141,19 +97,6 @@ class _PermissionContentState extends State<PermissionBody>
                   if (context.mounted) {
                     PreferenceManager.saveIsFirstPermission(false);
                     context.replaceRoute(const ShellRoute());
-      /*              PreferenceManager.saveIsFirstPermission(false);
-                    final int count =
-                        await PreferenceManager.getCountPermission();
-                    if (count == 1 && context.mounted) {
-                      context.pushRoute(
-                          PremiumFirstRoute(nextPage: const ShellRoute()));
-                    } else if (count == 2 && context.mounted) {
-                      context.pushRoute(
-                          PremiumSecondRoute(nextPage: const ShellRoute()));
-                    } else if (count >= 3 && context.mounted) {
-                      context.pushRoute(
-                          PremiumThirdRoute(nextPage: const ShellRoute()));
-                    }*/
                   }
                 },
                 child: Text(

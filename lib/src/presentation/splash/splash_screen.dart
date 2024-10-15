@@ -1,12 +1,8 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:auto_route/auto_route.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import '../../../module/tracking_screen/loggable_widget.dart';
 import '../../config/navigation/app_router.dart';
 import '../../gen/assets.gen.dart';
-import '../../global/global.dart';
 import '../../shared/extension/context_extension.dart';
 import '../../shared/extension/number_extension.dart';
 import '../../utils/style_utils.dart';
