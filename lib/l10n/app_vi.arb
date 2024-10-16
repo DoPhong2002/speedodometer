@@ -130,8 +130,8 @@
   "poor": "Kém!",
   "oh_no": "Ôi không!",
   "not_now": "Không bây giờ",
-  "onHud": "Trên hud",
-  "offHud": "Ngoài hud",
+  "onHud": "On hud",
+  "offHud": "Off hud",
   "subscriptionInfo": "Miễn phí 3 ngày, sau đó {price} mỗi tuần tự động gia hạn. Hủy bất cứ lúc nào",
   "@subscriptionInfo": {
     "placeholders": {

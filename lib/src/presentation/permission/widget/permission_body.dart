@@ -9,9 +9,6 @@ class PermissionBody extends StatefulWidget {
 
 class _PermissionContentState extends State<PermissionBody>
     with WidgetsBindingObserver {
-  final ValueNotifier<bool> notificationSwitchValue =
-      ValueNotifier<bool>(false);
-  final ValueNotifier<bool> locationSwitchValue = ValueNotifier<bool>(false);
   bool isRequesting = false;
 
   @override

@@ -64,10 +64,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-            Column(
+            const Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const SizedBox(
+                SizedBox(
                   height: 36,
                   width: 36,
                   child: CircularProgressIndicator(
@@ -76,9 +76,6 @@ class _SplashScreenState extends State<SplashScreen> {
                     strokeWidth: 6,
                   ),
                 ),
-                15.vSpace,
-                Text(context.l10n.splash_action_ads_title,
-                    style: StyleUtils.style.s16.white),
               ],
             ),
             40.vSpace,

@@ -38,7 +38,7 @@ mixin TextUtils {
       {double? padding, TextStyle? style}) {
     return Container(
       clipBehavior: Clip.antiAlias,
-      padding: EdgeInsets.symmetric(vertical: padding ?? 12),
+      padding: EdgeInsets.symmetric(vertical: padding ?? 17),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(
           Radius.circular(16),

@@ -171,10 +171,14 @@ class _HudScreenState extends State<HudScreen>
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  'Km/h',
-                                  style: StyleUtils.style.bold.s51.white
-                                      .copyWith(height: 1),
+                                BlocBuilder<SettingBloc, SettingState>(
+                                  builder: (context, stateSetting) {
+                                    return Text(
+                                      stateSetting.distanceUnit,
+                                      style: StyleUtils.style.bold.s51.white
+                                          .copyWith(height: 1),
+                                    );
+                                  },
                                 ),
                               ],
                             ),
@@ -231,34 +235,46 @@ class _HudScreenState extends State<HudScreen>
                                 alignment: Alignment.center,
                                 child: Padding(
                                   padding: EdgeInsets.only(bottom: 0.h),
-                                  child: Text(
-                                    'Km/h',
-                                    style: StyleUtils.style.bold.s51.white
-                                        .copyWith(height: 1),
-                                  ),
-                                ),
-                              ),
-                              BlocBuilder<HideNavigationBarCubit, bool>(
-                                builder: (contextVisible, stateVisible) {
-                                  return Visibility(
-                                    visible: start && stateVisible,
-                                    child: Container(
-                                      padding: EdgeInsets.only(bottom: 120),
-                                      child: BtnHudOdometer(
-                                        title: context.l10n.offHud,
-                                        linearGradient:
-                                            AppColors.dividerRedGradient,
-                                        linearGradientBtn:
-                                            AppColors.buttonHotGradient,
-                                        callback: () {
-                                          setState(() {
-                                            start = !start;
-                                          });
+                                  child: Column(
+                                    children: [
+                                      BlocBuilder<SettingBloc, SettingState>(
+                                        builder: (context, stateSetting) {
+                                          return Text(
+                                            stateSetting.distanceUnit,
+                                            style: StyleUtils
+                                                .style.bold.s51.white
+                                                .copyWith(height: 1),
+                                          );
                                         },
                                       ),
-                                    ),
-                                  );
-                                },
+                                      const SizedBox(height: 10),
+                                      BlocBuilder<HideNavigationBarCubit, bool>(
+                                        builder:
+                                            (contextVisible, stateVisible) {
+                                          return Visibility(
+                                            visible: start && stateVisible,
+                                            child: Container(
+                                              padding:
+                                                  EdgeInsets.only(bottom: 120),
+                                              child: BtnHudOdometer(
+                                                title: context.l10n.offHud,
+                                                linearGradient: AppColors
+                                                    .dividerRedGradient,
+                                                linearGradientBtn:
+                                                    AppColors.buttonHotGradient,
+                                                callback: () {
+                                                  setState(() {
+                                                    start = !start;
+                                                  });
+                                                },
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                               BlocBuilder<HideNavigationBarCubit, bool>(
                                 builder: (contextVisible, stateVisible) {
