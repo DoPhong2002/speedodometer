@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/di/di.dart';
@@ -44,7 +42,7 @@ class _ShellScreenState extends State<ShellScreen>
   void initState() {
     super.initState();
     TextUtils.settingSystemUI();
-    createVehicle();
+    // createVehicle();
     //_showRate();
   }
 
@@ -72,12 +70,12 @@ class _ShellScreenState extends State<ShellScreen>
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter.pageView(
-      routes: [
+      routes: const [
         HudRoute(),
         SpeedometerRoute(),
         SettingRoute(),
       ],
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       builder: (context, child, pageController) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(

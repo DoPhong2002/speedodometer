@@ -13,7 +13,6 @@ class WeatherCubit extends HydratedCubit<Weather> {
   Future<void> fetchAndStoreWeather(WeatherParams params) async {
     try {
       final weather = await _weatherRepository.getWeather(params);
-
       emit(weather);
     } catch (e) {
       throw Exception(e);
