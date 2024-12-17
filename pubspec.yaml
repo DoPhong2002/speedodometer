@@ -63,7 +63,7 @@ dependencies:
   open_settings_plus: ^0.3.3
   fluttertoast: ^8.2.8
   flutter_native_splash: ^2.4.1
-
+  local_auth: ^2.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -74,7 +74,7 @@ dev_dependencies:
   auto_route_generator:
   flutter_lints: ^4.0.0
   flutter_gen_runner: ^5.4.0
-  flutter_launcher_icons: "^0.14.1"
+  flutter_launcher_icons: "^0.14.2"
 
 flutter:
   generate: true
