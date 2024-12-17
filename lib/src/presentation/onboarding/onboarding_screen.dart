@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../module/tracking_screen/loggable_widget.dart';
 import '../../gen/gens.dart';
 import '../../shared/cubit/value_cubit.dart';
 import '../../shared/extension/context_extension.dart';

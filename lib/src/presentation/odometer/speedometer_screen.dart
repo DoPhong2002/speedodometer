@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../../config/di/di.dart';
+import '../../data/local/secure_storage_manager.dart';
 import '../../data/local/shared_preferences_manager.dart';
 import '../../gen/assets.gen.dart';
 import '../../shared/constants/app_colors.dart';
@@ -61,7 +62,7 @@ class _SpeedometerScreenState extends State<SpeedometerScreen>
   }
 
   Future<void> getSpeedLimit() async {
-    speedLimits = await PreferenceManager.getSpeedLimits();
+    speedLimits = await SecureStorageManager().getSpeedLimits();
     getIt<SpeedCubit>().updateSpeedLimit(
         speedLimits.values.toList()[speedCubit.state.vehicle].speed.toDouble());
   }
@@ -101,7 +102,7 @@ class _SpeedometerScreenState extends State<SpeedometerScreen>
                             onConfirm: () async {
                               final Map<VehicleWithSpeedLimit, ItemSpeed>
                                   speedLimitNew =
-                                  await PreferenceManager.getSpeedLimits();
+                                  await SecureStorageManager().getSpeedLimits();
                               bloc
                                   .read<SettingBloc>()
                                   .add(VehicleEvent(selectedIndex.value ?? 0));

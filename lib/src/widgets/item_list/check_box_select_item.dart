@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../module/tracking_screen/loggable_widget.dart';
 import '../../gen/assets.gen.dart';
 import '../../utils/style_utils.dart';
 

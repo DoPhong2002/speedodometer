@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/di/di.dart';
 import '../../config/navigation/app_router.dart';
+import '../../data/local/secure_storage_manager.dart';
 import '../../data/local/shared_preferences_manager.dart';
 import '../../gen/assets.gen.dart';
 import '../../gen/fonts.gen.dart';
@@ -176,7 +177,6 @@ class _ShellScreenState extends State<ShellScreen>
     );
   }
 
-
   Future<void> showSpeedLimit({
     required BuildContext context,
     required TextEditingController controller,
@@ -186,7 +186,8 @@ class _ShellScreenState extends State<ShellScreen>
   }) async {
     controller.text = itemSpeed.speed.toString();
     final Map<VehicleWithSpeedLimit, ItemSpeed> allSpeedLimits =
-        await PreferenceManager.getSpeedLimits();
+        await SecureStorageManager().getSpeedLimits();
+
     final speedLimitList = allSpeedLimits.entries.toList();
     final ValueNotifier<int?> selectedIndex = ValueNotifier<int?>(0);
     //if (await PreferenceManager.getCountPermission() == 1 && context.mounted) {
@@ -257,7 +258,7 @@ class _ShellScreenState extends State<ShellScreen>
             final updatedItem =
                 speedLimitList[count].value.copyWith(speed: speed);
             allSpeedLimits[speedLimitList[count].key] = updatedItem;
-            PreferenceManager.setSpeedLimits(allSpeedLimits);
+            SecureStorageManager().setSpeedLimits(allSpeedLimits);
             PreferenceManager.setVehicle(count);
             context.maybePop();
           }

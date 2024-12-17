@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:odometer/src/data/local/secure_storage_manager.dart';
 import '../language/cubit/language_cubit.dart';
-import '../../../module/tracking_screen/loggable_widget.dart';
 import '../../config/di/di.dart';
 import '../../config/navigation/app_router.dart';
 import '../../gen/assets.gen.dart';
@@ -92,6 +92,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         iconLeft: Assets.icons.settings.speedLimit.svg(),
                         onTapItem: () {
                           context.pushRoute(const SpeedLimitRoute());
+                          // SecureStorageManager().testEncryption();
                         },
                       ),
                       ItemListOrSwitchWidget(

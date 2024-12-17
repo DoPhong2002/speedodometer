@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import '../../../config/di/di.dart';
+import '../../../data/local/secure_storage_manager.dart';
 import '../../../data/local/shared_preferences_manager.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../utils/localization_util.dart';
@@ -23,7 +24,7 @@ class SpeedLimitBloc extends Bloc<SpeedLimitEvent, SpeedLimitState> {
     Emitter<SpeedLimitState> emit,
   ) async {
     final Map<VehicleWithSpeedLimit, ItemSpeed> speedLimitLocal =
-        await PreferenceManager.getSpeedLimits();
+     await SecureStorageManager().getSpeedLimits();
     emit(state.copyWith(allSpeedLimits: speedLimitLocal));
   }
 
@@ -45,7 +46,8 @@ class SpeedLimitBloc extends Bloc<SpeedLimitEvent, SpeedLimitState> {
           allSpeedLimits: updatedMap,
           selectedSpeedLimit: event.vehicleType,
         ));
-        await PreferenceManager.setSpeedLimits(state.allSpeedLimits);
+        await SecureStorageManager().setSpeedLimits(state.allSpeedLimits);
+
         final vehicle = getIt<SettingBloc>().state.vehicle;
         if(vehicle == event.index) {
           getIt<SpeedCubit>().updateSpeedLimit(inputSpeedDouble.toDouble());

@@ -3,13 +3,20 @@ import 'dart:convert';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../presentation/speed_limit/bloc/speed_limit_bloc.dart';
 import '../../shared/enum/preference_keys.dart';
+
+@module
+abstract class SharedPreferencesModule {
+  @preResolve
+  Future<SharedPreferences> provideSharedPreferences() =>
+      SharedPreferences.getInstance();
+}
 
 @injectable
 class PreferenceManager {
-  Future<SharedPreferences> get _preference => SharedPreferences.getInstance();
+  final SharedPreferences _preference;
+
+  PreferenceManager(this._preference);
 
   Future<String?> getString(String key) async {
     return (await _preference).getString(key);
@@ -68,7 +75,7 @@ class PreferenceManager {
 
   static Future<bool> getIsFirstVehicle() async {
     return (await SharedPreferences.getInstance())
-        .getBool(PreferenceKeys.isFirstVehicle.name) ??
+            .getBool(PreferenceKeys.isFirstVehicle.name) ??
         true;
   }
 
@@ -194,79 +201,4 @@ class PreferenceManager {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getInt(PreferenceKeys.themeOdometer.name) ?? 0;
   }
-
-  static Future<void> setSpeedLimits(
-      Map<VehicleWithSpeedLimit, ItemSpeed> allSpeedLimits) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    final Map<String, dynamic> jsonMap = allSpeedLimits.map((key, value) {
-      return MapEntry(key.toString(), value.toJson());
-    });
-
-    final jsonString = jsonEncode(jsonMap);
-
-    await prefs.setString(PreferenceKeys.speedLimit.name, jsonString);
-  }
-
-  static Future<Map<VehicleWithSpeedLimit, ItemSpeed>> getSpeedLimits() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final jsonString = prefs.getString(PreferenceKeys.speedLimit.name);
-
-    if (jsonString != null ) {
-      final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
-
-      final Map<VehicleWithSpeedLimit, ItemSpeed> allSpeedLimits = jsonMap.map((key, value) {
-        final speedLimit = VehicleWithSpeedLimit.values.firstWhere((e) => e.toString() == key);
-        return MapEntry(speedLimit, ItemSpeed.fromJson(value));
-      });
-
-      return allSpeedLimits;
-    } else {
-      return VehicleWithSpeedLimit.loadSpeedLimits();
-    }
-  }
-
-  static Future<void> setLat(double value) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setDouble(PreferenceKeys.lat.name, value);
-  }
-
-  static Future<double> getLat() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getDouble(PreferenceKeys.lat.name) ?? 21.038412;
-  }
-
-  static Future<void> setLong(double value) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setDouble(PreferenceKeys.long.name, value);
-  }
-
-  static Future<double> getLong() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getDouble(PreferenceKeys.long.name) ?? 105.780716;
-  }
-
-  static Future<void> saveLatLng(LatLng latLng) async {
-    final prefs = await SharedPreferences.getInstance();
-    final latLngJson = jsonEncode({
-      'latitude': latLng.latitude,
-      'longitude': latLng.longitude,
-    });
-    await prefs.setString(PreferenceKeys.latLong.name, latLngJson);
-  }
-
-  static Future<LatLng> getLatLng() async {
-    final prefs = await SharedPreferences.getInstance();
-    final latLngJson = prefs.getString(PreferenceKeys.latLong.name);
-
-    if (latLngJson != null) {
-      final latLongMap = jsonDecode(latLngJson);
-      return LatLng(
-        latLongMap['latitude'],
-        latLongMap['longitude'],
-      );
-    }
-    return const LatLng(0, 0);
-  }
-
 }
