@@ -1,0 +1,29 @@
+{
+  "af": [
+    "startOdometer"
+  ],
+
+  "bn": [
+    "startOdometer"
+  ],
+
+  "de": [
+    "startOdometer"
+  ],
+
+  "fr": [
+    "startOdometer"
+  ],
+
+  "hi": [
+    "startOdometer"
+  ],
+
+  "id": [
+    "startOdometer"
+  ],
+
+  "tr": [
+    "startOdometer"
+  ]
+}
