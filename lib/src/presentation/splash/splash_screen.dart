@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:local_auth/local_auth.dart'; // Import Local Authentication
+import 'package:local_auth/local_auth.dart';
 import '../../config/navigation/app_router.dart';
 import '../../gen/assets.gen.dart';
 import '../../shared/extension/context_extension.dart';
