@@ -49,10 +49,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   /// Khởi tạo màn hình với xác thực
   Future<void> _init() async {
-    await Future.delayed(const Duration(seconds: 1)); // Giả lập thời gian Splash
+    await Future.delayed(const Duration(seconds: 1));
     bool isAuthenticated = await _authenticate();
     if (isAuthenticated) {
-      setInitScreen(); // Xác thực thành công
+      setInitScreen();
     } else {
       _showAuthFailedDialog();
     }
