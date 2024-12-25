@@ -7,6 +7,6 @@ import '../config/navigation/app_router.dart';
 mixin L10n {
   static AppLocalizations get tr {
     final context = getIt<AppRouter>().navigatorKey.currentContext!;
-    return AppLocalizations.of(context)!;
+    return AppLocalizations.of(context);
   }
 }

@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:odometer/src/data/local/secure_storage_manager.dart';
 import '../language/cubit/language_cubit.dart';
 import '../../config/di/di.dart';
 import '../../config/navigation/app_router.dart';

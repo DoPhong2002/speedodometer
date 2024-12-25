@@ -8,7 +8,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../../config/di/di.dart';
 import '../../data/local/secure_storage_manager.dart';
-import '../../data/local/shared_preferences_manager.dart';
 import '../../gen/assets.gen.dart';
 import '../../shared/constants/app_colors.dart';
 import '../../shared/extension/context_extension.dart';

@@ -1,6 +1,4 @@
-import 'dart:convert';
 
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../shared/enum/preference_keys.dart';
@@ -19,31 +17,31 @@ class PreferenceManager {
   PreferenceManager(this._preference);
 
   Future<String?> getString(String key) async {
-    return (await _preference).getString(key);
+    return (_preference).getString(key);
   }
 
   Future<bool> setString(String key, String value) async {
-    return (await _preference).setString(key, value);
+    return (_preference).setString(key, value);
   }
 
   Future<bool> remove(String key) async {
-    return (await _preference).remove(key);
+    return (_preference).remove(key);
   }
 
   Future<bool> setBool(String key, bool value) async {
-    return (await _preference).setBool(key, value);
+    return (_preference).setBool(key, value);
   }
 
   Future<bool?> getBool(String key) async {
-    return (await _preference).getBool(key);
+    return (_preference).getBool(key);
   }
 
   Future<bool> setInt(String key, int value) async {
-    return (await _preference).setInt(key, value);
+    return (_preference).setInt(key, value);
   }
 
   Future<int?> getInt(String key) async {
-    return (await _preference).getInt(key);
+    return (_preference).getInt(key);
   }
 
   static Future<void> saveIsFirstLaunch(bool status) async {

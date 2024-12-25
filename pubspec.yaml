@@ -50,7 +50,7 @@ dependencies:
   hive_flutter: ^1.1.0
   hive_generator: ^2.0.1
   flutter_animate: ^4.5.0
-  flutter_compass: ^0.8.0
+  flutter_compass: ^0.8.1
   carousel_slider: ^5.0.0
   flutter_hooks: ^0.20.3
   geolocator: ^12.0.0

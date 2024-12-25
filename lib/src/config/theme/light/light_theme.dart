@@ -15,7 +15,7 @@ ThemeData lightThemeData = ThemeData(
   ),
   useMaterial3: true,
   textTheme: MyTextTheme(),
-  dialogTheme: MyDialogTheme(),
+  dialogTheme: const MyDialogTheme(),
   filledButtonTheme: MyFilledButtonTheme(),
   iconButtonTheme: MyIconButtonTheme(),
   outlinedButtonTheme: MyOutlinedButtonTheme(),

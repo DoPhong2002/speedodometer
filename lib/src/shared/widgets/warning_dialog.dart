@@ -52,7 +52,7 @@ class WarningDialog extends AlertDialog {
       ];
 
   @override
-  Color? get surfaceTintColor => context.colorScheme.background;
+  Color? get surfaceTintColor => context.colorScheme.surface;
 
   @override
   Widget? get title => Text(

@@ -255,7 +255,7 @@ class _HudScreenState extends State<HudScreen>
                                             visible: start && stateVisible,
                                             child: Container(
                                               padding:
-                                                  EdgeInsets.only(bottom: 120),
+                                                  const EdgeInsets.only(bottom: 120),
                                               child: BtnHudOdometer(
                                                 title: context.l10n.offHud,
                                                 linearGradient: AppColors
@@ -281,7 +281,7 @@ class _HudScreenState extends State<HudScreen>
                                   return Visibility(
                                     visible: !start && stateVisible,
                                     child: Container(
-                                      padding: EdgeInsets.only(bottom: 120),
+                                      padding: const EdgeInsets.only(bottom: 120),
                                       child: BtnHudOdometer(
                                         title: context.l10n.onHud,
                                         linearGradient:

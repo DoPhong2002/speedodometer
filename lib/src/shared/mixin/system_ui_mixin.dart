@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 
-import '../../global/global.dart';
 
 mixin SystemUiMixin {
   void hideNavigationBar() {

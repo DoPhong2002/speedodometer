@@ -33,7 +33,7 @@ class AppColors {
       Color(0xff79E3BD),
       Color(0xff48c6d7),
     ],
-  ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
+  ).createShader(const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 
   static const buttonGradient = LinearGradient(
     colors: [
@@ -103,8 +103,8 @@ class AppColors {
   );
   static var languageGradient = LinearGradient(
     colors: [
-      Color(0xA5101010).withOpacity(0.6),
-      Color(0xFF000000).withOpacity(0.6),
+      const Color(0xA5101010).withOpacity(0.6),
+      const Color(0xFF000000).withOpacity(0.6),
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
@@ -112,8 +112,8 @@ class AppColors {
 
   static var backgroundCard = LinearGradient(
     colors: [
-      Color(0xA5232323).withOpacity(0.6),
-      Color(0xFF111111).withOpacity(0.6),
+      const Color(0xA5232323).withOpacity(0.6),
+      const Color(0xFF111111).withOpacity(0.6),
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
@@ -173,8 +173,8 @@ class AppColors {
   );
   static LinearGradient premiumBgItemGradient = LinearGradient(
     colors: [
-      Color(0xff79E3BD).withOpacity(0.35),
-      Color(0xff4878D7).withOpacity(0.35),
+      const Color(0xff79E3BD).withOpacity(0.35),
+      const Color(0xff4878D7).withOpacity(0.35),
     ],
   );
   static LinearGradient whileBorderGradient = LinearGradient(

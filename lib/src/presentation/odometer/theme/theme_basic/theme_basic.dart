@@ -11,7 +11,7 @@ import '../../../setting/bloc/setting_bloc.dart';
 import '../../cubit/speed_cubit.dart';
 
 class ThemeBasic extends StatelessWidget {
-  ThemeBasic({super.key, required this.pathImage, required this.maxSpeed});
+  const ThemeBasic({super.key, required this.pathImage, required this.maxSpeed});
 
   final String pathImage;
   final int maxSpeed;

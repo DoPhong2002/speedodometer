@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import '../../../config/di/di.dart';
 import '../../../data/local/secure_storage_manager.dart';
-import '../../../data/local/shared_preferences_manager.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../utils/localization_util.dart';
 import '../../odometer/cubit/speed_cubit.dart';

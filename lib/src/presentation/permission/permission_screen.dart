@@ -14,7 +14,6 @@ import '../../shared/widgets/custom_appbar.dart';
 import '../../shared/widgets/request_permission_dialog.dart';
 import '../../utils/style_utils.dart';
 import '../../widgets/button_widget.dart';
-import '../../widgets/dialog/dialog_widget.dart';
 import '../../widgets/gps_background.dart';
 import 'cubit/location_status_cubit.dart';
 import 'cubit/notification_status_cubit.dart';

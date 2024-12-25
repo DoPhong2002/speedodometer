@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../gen/assets.gen.dart';
 import '../../../gen/fonts.gen.dart';
 import '../../../shared/constants/app_colors.dart';
 import '../../../shared/extension/context_extension.dart';

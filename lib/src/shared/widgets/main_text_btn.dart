@@ -45,7 +45,7 @@ class MainTextBtn extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: textColor ?? context.colorScheme.background,
+                  color: textColor ?? context.colorScheme.surface,
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                 ),
