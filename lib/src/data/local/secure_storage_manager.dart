@@ -12,7 +12,6 @@ enum SecureStorageKey { secureLimitSpeed }
 @injectable
 class SecureStorageManager {
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
-  final EncryptManager _encryptManager = EncryptManager();
   FlutterSecureStorage get storage => _secureStorage;
 
   /// Chuyển `SecureStorageKey` sang chuỗi để sử dụng làm key
