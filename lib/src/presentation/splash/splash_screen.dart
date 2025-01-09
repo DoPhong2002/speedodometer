@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:odometer/src/shared/constants/app_colors.dart';
 import '../../config/navigation/app_router.dart';
 import '../../gen/assets.gen.dart';
 import '../../shared/extension/context_extension.dart';
@@ -20,7 +21,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   final LocalAuthentication _localAuth = LocalAuthentication();
-  // ···
+  int _failedAttempts = 0;
 
   /// Chuyển đến màn hình tiếp theo sau khi xác thực thành công
   Future<void> setInitScreen() async {
@@ -29,9 +30,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   /// Hàm thực hiện xác thực sinh trắc học
   Future<bool> _authenticate() async {
-    final bool canAuthenticateWithBiometrics = await _localAuth.canCheckBiometrics;
-    // final bool canAuthenticate =
-    //     canAuthenticateWithBiometrics || await _localAuth.isDeviceSupported();
+    final bool canAuthenticateWithBiometrics =
+        await _localAuth.canCheckBiometrics;
     bool authenticated = false;
     try {
       authenticated = await _localAuth.authenticate(
@@ -50,10 +50,14 @@ class _SplashScreenState extends State<SplashScreen> {
   /// Khởi tạo màn hình với xác thực
   Future<void> _init() async {
     await Future.delayed(const Duration(seconds: 1));
+    _failedAttempts++;
     bool isAuthenticated = await _authenticate();
     if (isAuthenticated) {
       setInitScreen();
     } else {
+      if (_failedAttempts > 5) {
+        _exitApp();
+      }
       _showAuthFailedDialog();
     }
   }
@@ -64,22 +68,31 @@ class _SplashScreenState extends State<SplashScreen> {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: const Text("Authentication Failed"),
-        content: const Text("You need to authenticate to use this app."),
+        backgroundColor: AppColors.bg,
+        title: const Text(
+          "Authentication Failed",
+          style: TextStyle(color: Colors.white),
+        ),
+        content: const Text(
+          "You need to authenticate to use this app.",
+          style: TextStyle(color: Colors.white),
+        ),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
               _init();
             },
-            child: const Text("Retry"),
+            child: const Text("Retry",
+              style: TextStyle(color: Colors.white),),
           ),
           TextButton(
             onPressed: () {
               SystemNavigator.pop();
               _exitApp();
             },
-            child: const Text("Exit"),
+            child: const Text("Exit",
+              style: TextStyle(color: Colors.white),),
           ),
         ],
       ),
@@ -89,7 +102,7 @@ class _SplashScreenState extends State<SplashScreen> {
   /// Thoát ứng dụng nếu người dùng hủy xác thực
   void _exitApp() {
     Future.delayed(const Duration(milliseconds: 500), () {
-      Navigator.of(context).pop();
+      SystemNavigator.pop();
     });
   }
 
