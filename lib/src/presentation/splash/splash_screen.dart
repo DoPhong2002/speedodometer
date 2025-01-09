@@ -30,8 +30,8 @@ class _SplashScreenState extends State<SplashScreen> {
   /// Hàm thực hiện xác thực sinh trắc học
   Future<bool> _authenticate() async {
     final bool canAuthenticateWithBiometrics = await _localAuth.canCheckBiometrics;
-    final bool canAuthenticate =
-        canAuthenticateWithBiometrics || await _localAuth.isDeviceSupported();
+    // final bool canAuthenticate =
+    //     canAuthenticateWithBiometrics || await _localAuth.isDeviceSupported();
     bool authenticated = false;
     try {
       authenticated = await _localAuth.authenticate(
