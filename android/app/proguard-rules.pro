@@ -1,11 +1,5 @@
-# Bật minify và obfuscate
--dontoptimize
-
-# Giảm cảnh báo
--dontwarn androidx.**
--dontwarn com.google.**
--dontwarn io.flutter.**
--dontwarn org.jetbrains.**
-
-# Che giấu mã nguồn chính
+# Bật làm rối mã và ẩn tên file nguồn
 -renamesourcefileattribute SourceFile
+
+# Giảm cảnh báo không cần thiết
+-dontwarn **
