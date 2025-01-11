@@ -48,7 +48,6 @@ class SecureStorageManager {
       key: SecureStorageKey.secureLimitSpeed.name,
       value: jsonString,
     );
-
    }
 
   Future<Map<VehicleWithSpeedLimit, ItemSpeed>> getSpeedLimits() async {
